@@ -1,0 +1,13 @@
+{
+  "name": "灵感花园",
+  "short_name": "灵感花园",
+  "description": "让灵感慢慢开花。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf6eb",
+  "theme_color": "#faf6eb",
+  "icons": [
+    { "src": "./assets/icon.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
+  ]
+}

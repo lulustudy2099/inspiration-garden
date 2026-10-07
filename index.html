@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#faf6eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="灵感花园">
+  <title>灵感花园</title>
+  <meta name="description" content="让灵感慢慢开花。你的私人手绘花园。">
+  <link rel="icon" href="./assets/icon.png">
+  <link rel="apple-touch-icon" href="./assets/icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <main class="app-frame">
+      <header class="topbar"><span class="brand">♧ 灵感花园</span><span id="count-label">一方小花园</span></header>
+      <section id="garden-screen" class="screen garden-screen" aria-label="灵感花园">
+        <div class="garden-heading"><p class="eyebrow">MY LITTLE GARDEN <span>✦</span> <span id="year"></span></p><h1>让灵感，慢慢开花。</h1><p>想到什么，就种下一颗嫩芽。</p></div>
+        <div id="garden-art" class="garden-art"><div class="meadow" aria-hidden="true"></div><div id="flower-field" class="flower-field"></div><div id="garden-empty" class="garden-empty"><span class="empty-mark">✿</span><span>第一颗嫩芽，等你亲手种下</span></div></div>
+        <div class="garden-actions"><button class="plant-button open-composer" type="button"><span class="plus">＋</span> Plant <small>种下灵感</small></button><p id="garden-hint">跟进会长成花苞，行动会让它开花。</p></div>
+      </section>
+      <section id="list-screen" class="screen list-screen" aria-label="灵感列表" hidden>
+        <div class="list-heading"><p class="eyebrow">COLLECTED MOMENTS</p><h1>灵感手记</h1><p>轻轻翻阅，那些正在生长的念头。</p></div>
+        <div id="filters" class="filters" role="group" aria-label="按类别筛选"></div>
+        <div id="list-scroll" class="list-scroll"></div>
+      </section>
+      <nav class="bottom-nav" aria-label="主导航"><button id="nav-garden" class="nav-item active" type="button" aria-current="page"><span class="nav-icon">♧</span><span>花园</span></button><button class="nav-plus open-composer" type="button" aria-label="记录灵感">＋</button><button id="nav-list" class="nav-item" type="button"><span class="nav-icon">☷</span><span>灵感</span></button></nav>
+    </main>
+  </div>
+
+  <dialog id="composer" class="modal composer" aria-labelledby="composer-title">
+    <div class="modal-head"><span class="eyebrow">A NEW LITTLE SEED</span><button class="icon-button close-composer" type="button" aria-label="关闭">×</button></div>
+    <h2 id="composer-title">种下一颗灵感</h2><p class="modal-subtitle">此刻想留下什么？</p>
+    <div id="category-row" class="category-row" role="group" aria-label="灵感分类"></div>
+    <textarea id="idea-text" maxlength="3000" placeholder="写下忽然想到的事…" aria-label="灵感文字"></textarea>
+    <div class="attachment-row"><button id="pick-photo" type="button">▧<span>上传照片</span></button><button id="take-photo" type="button">◎<span>拍照</span></button><button id="record-audio" type="button">♩<span>录语音</span></button></div>
+    <input id="photo-input" class="sr-only" type="file" accept="image/*"><input id="camera-input" class="sr-only" type="file" accept="image/*" capture="environment">
+    <div id="attachment-status" class="attachment-status"></div><p id="composer-error" class="notice" role="alert"></p>
+    <button id="save-idea" class="save-button" type="button">种下这颗嫩芽 ♧</button><p class="modal-foot">每个念头都从小小的嫩芽开始。</p>
+  </dialog>
+
+  <dialog id="detail" class="modal detail" aria-labelledby="detail-title">
+    <div class="detail-head"><button class="icon-button close-detail" type="button" aria-label="返回">‹</button><span id="detail-title">灵感的生长</span><button class="icon-button close-detail" type="button" aria-label="关闭">×</button></div>
+    <div id="detail-art" class="detail-art"></div><div id="detail-meta" class="detail-meta"></div>
+    <p id="detail-text" class="detail-text"></p><div id="detail-media"></div><div id="detail-history" class="detail-history"></div>
+    <div id="progress-form" class="progress-form"><p id="progress-prompt"></p><textarea id="progress-text" maxlength="3000" placeholder="写下这次进展…" aria-label="灵感进展"></textarea><button id="save-progress" class="save-button" type="button"></button><button id="extra-followup" class="secondary-progress" type="button" hidden>再记一次跟进</button></div>
+    <p id="progress-hint" class="progress-hint">10 天没有互动会稍微枯萎；点开就能唤醒。</p><p id="detail-error" class="notice" role="alert"></p>
+  </dialog>
+</body>
+</html>
