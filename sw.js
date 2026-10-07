@@ -1,4 +1,4 @@
-const CACHE = 'inspiration-garden-v1';
+const CACHE = 'inspiration-garden-v2';
 const SHELL = [
   './', './index.html', './style.css', './app.js', './manifest.webmanifest',
   './assets/icon.png', './assets/garden-paper-background.png', './assets/crayon-meadow.png',
